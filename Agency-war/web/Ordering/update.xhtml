@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>                 
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="id:" for="id" />
+                    <h:inputText id="id" value="#{orderingManagedBean.ordering.IDOrdering}" title="id" required="true" requiredMessage="The Login field is required."/>
+                    <h:outputLabel value="Date:" for="date" />
+                    <h:inputText id="date" value="#{orderingManagedBean.ordering.date}" title="date" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="quartity" for="quartity" />
+                    <h:inputText id="quartity" value="#{orderingManagedBean.ordering.quartity}" title="quartity" />
+                    <h:outputLabel value="IDClient" for="IDClient" />
+                    <h:inputText id="IDClient" value="#{orderingManagedBean.client.IDClient}" title="IDClient" />
+                    <h:outputLabel value="IDProduct" for="IDProduct" />
+                    <h:inputText id="IDProduct" value="#{orderingManagedBean.product.IDProduct}" title="IDProduct" />
+                    <h:outputLabel value="IDEmployee" for="IDEmployee" />
+                    <h:inputText id="IDEmployee" value="#{orderingManagedBean.employee.IDEmployee}" title="IDEmployee" />
+                    <h:commandButton value="Сохранить" action="#{orderingManagedBean.edit()}"/>                        
+                </h:panelGrid>
+            </h:form>
+    </body>
+</html>

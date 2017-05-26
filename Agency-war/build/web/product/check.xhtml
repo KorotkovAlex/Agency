@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <h:link value = "Добавить" outcome = "/faces/product/add.xhtml"></h:link>
+                <div>                    
+                    <c:forEach var="item" items="#{productManagedBean.findAll()}">
+                        <div>
+                            <h:outputText value="#{item.IDProduct}"/>
+                            <h:outputText value="#{item.nameProduct}"/>
+                            <h:outputText value="#{item.price}"/>
+                            <c:forEach var="role" items="#{item.materialList}">
+                                <h:outputText value="#{role.price}">
+                                    </h:outputText>
+                            </c:forEach>
+                            <c:forEach var="role" items="#{item.orderingList}">
+                                <h:outputText value="#{role.date}">
+                                    </h:outputText>
+                            </c:forEach>
+                            <h:commandButton value="Удалить" action="#{productManagedBean.remove(item)}">
+                            </h:commandButton> 
+                            <h:commandLink value="Изменить" action="#{productManagedBean.edit(item)}">
+                            </h:commandLink> 
+                        </div>
+                    </c:forEach>
+                </div>
+        </h:form>  
+    </body>
+</html>
